@@ -23,7 +23,7 @@ echo "---> Installing application source..."
 cp -Rf /opt/s2i/destination/src/. ./
 
 echo "---> Building application from source..."
-ant clean package
+ant clean package $JAVA_OPTS
 
 echo "---> Copy war to deploy."
 mkdir -p deployments
