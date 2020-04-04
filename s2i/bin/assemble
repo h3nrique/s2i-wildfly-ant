@@ -23,7 +23,9 @@ echo "---> Installing application source..."
 cp -Rf /opt/s2i/destination/src/. ./
 
 echo "---> Building application from source..."
-ant clean package $JAVA_OPTS
+run_task=${RUN_TASK:-run}
+buildfile=${BUILDFILE:-build.xml}
+ant -buildfile $buildfile $run_task $JAVA_OPTS
 
 echo "---> Copy war to deploy."
 mkdir -p deployments
