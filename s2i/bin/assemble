@@ -28,7 +28,8 @@ buildfile=${BUILDFILE:-build.xml}
 ant -buildfile $buildfile $run_task $JAVA_OPTS
 
 echo "---> Copy war to deploy."
+output=${OUTPUT_DIR:-target}
 mkdir -p deployments
-cp _target/*.war deployments/
+cp $output/*.war deployments/
 
 /usr/libexec/s2i/assemble-base
